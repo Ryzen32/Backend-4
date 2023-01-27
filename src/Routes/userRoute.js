@@ -21,7 +21,7 @@ userRoute.post("/", async (req, res) => {
   const { name, score } = req.body;
 
   try {
-    let user = await User.find({ name });
+    let user = await User.findOne({ name });
     console.log(user)
     if (user.length) {
       res.status(200).send({ msg: "username already present !",user });
