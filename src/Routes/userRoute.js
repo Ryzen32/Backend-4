@@ -23,7 +23,7 @@ userRoute.post("/", async (req, res) => {
   try {
     let user = await User.findOne({ name });
     console.log(user)
-    if (user.length) {
+    if (user) {
       res.status(200).send({ msg: "username already present !",user });
     } else {
     let user_data=  await User.create({ name, score });
