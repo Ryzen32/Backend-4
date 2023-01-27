@@ -37,15 +37,15 @@ userRoute.post("/", async (req, res) => {
 
 
 
-userRoute.patch("/:id", async (req, res) => {
-  const { score } = req.body;
+userRoute.put("/:id", async (req, res) => {
+  const { score,name } = req.body;
   const { id } = req.params;
 
   try {
-    let user = await User.findByIdAndUpdate({ _id: id }, { score });
+    let user = await User.findByIdAndUpdate({ _id: id }, { score,name });
     res.status(200).send({msg:"updated Successfully",user})
   } catch (err) {
-    res.status(500).send({ msg: "Login failed !" });
+    res.status(500).send({ msg: "updated failed!" });
   }
 });
 
