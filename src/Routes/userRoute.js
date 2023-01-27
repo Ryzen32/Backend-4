@@ -15,6 +15,8 @@ userRoute.get("/", async (req, res) => {
 });
 
 
+
+
 userRoute.post("/", async (req, res) => {
   const { name, score } = req.body;
 
